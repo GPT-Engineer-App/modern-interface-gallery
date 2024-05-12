@@ -11,8 +11,8 @@ const Index = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
-          title: `Website: ${new URL(url).hostname}`,
-          description: `Content: Description for ${url}`,
+          title: `Website Title for ${new URL(url).hostname}`,
+          description: `Meta description or relevant content for ${url}`,
         });
       }, 500);
     });
@@ -66,7 +66,7 @@ const Index = () => {
         <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={handleAddUrl}>
           Add URL
         </Button>
-        <SimpleGrid columns={3} spacing={10} mt={10}>
+        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={10} mt={10}>
           {urls.map(({ id, link, image, title, description }) => (
             <Box key={id} p={5} shadow="md" borderWidth="1px" borderRadius="lg" overflow="hidden" position="relative">
               <Image src={image} alt={`Preview of ${link}`} />
